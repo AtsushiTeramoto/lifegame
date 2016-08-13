@@ -1,5 +1,5 @@
 OBJS = main.o Run.o Initialize.o Step.o Finalize.o Output.o
-OPTIONS = -DMAX_X=10 -DMAX_Y=10 -DSTEP_MAX=20
+OPTIONS = -DMAX_X=10 -DMAX_Y=10 -DSTEP_MAX=4
 CFLAGS = ${OPTIONS} -W -Wall -g
 
 lifegame : ${OBJS}
