@@ -12,4 +12,5 @@ void Free_Cells(struct lifegame_field *field)
 void Finalize(struct lifegame_field *field)
 {
     Free_Cells(field);
+    free(field);
 }
