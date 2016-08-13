@@ -1,1 +1,1 @@
-void Output(struct lifegame_field *);
+void Output(const struct lifegame_field *);
