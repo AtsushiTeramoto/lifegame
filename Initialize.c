@@ -10,7 +10,7 @@ static void* malloc_and_check(const size_t size)
     }
     return p;
 }
-bool ** Alloc_Cells(int max_x, int max_y)
+bool ** Alloc_Cells(const int max_x, const int max_y)
 {
     bool **cells;
     cells = (bool **)malloc_and_check(sizeof(bool*)*max_x);
@@ -31,7 +31,7 @@ static void Preset_Cells(struct lifegame_field *field)
         }
     }
 }
-struct lifegame_field* Initialize(int max_x,int max_y)
+struct lifegame_field* Initialize(const int max_x,const int max_y)
 {
     struct lifegame_field *field;
     field = malloc_and_check(sizeof(struct lifegame_field));
