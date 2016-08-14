@@ -1,12 +1,14 @@
+Initializer = Preset
 OBJS = main.o Run.o Initialize.o Step.o Finalize.o Output.o
 ifeq ($(Initializer), Random)
 	OBJS += GenerateInitialState_Random.o
 	LDFLAGS += -L/usr/local/opt/gsl/lib -lgsl
-	OPTIONS = -DMAX_X=5 -DMAX_Y=8 -DSTEP_MAX=30
+	OPTIONS = -DMAX_X=5 -DMAX_Y=8 -DMAX_STEP=30
 endif
 ifeq ($(Initializer), Preset)
 	OBJS += GenerateInitialState_Preset.o
-	OPTIONS = -DPULSAR -DSTEP_MAX=50
+	#OPTIONS = -DPULSAR
+	OPTIONS = -DGLIDER
 endif
 CFLAGS = ${OPTIONS} -W -Wall -g
 
@@ -22,5 +24,5 @@ Initialize.o : Initialize.c Structures.h Initialize.h Makefile
 Finalize.o : Finalize.c Structures.h Finalize.h Makefile
 Step.o : Step.c Structures.h Step.h Finalize.h Initialize.h Makefile
 Output.o : Output.c Structures.h Makefile
-GenerateInitialState_Random.o : GenerateInitialState_Random.c GenerateInitialState.h 
-GenerateInitialState_Preset.c : GenerateInitialState_Preset.c GenerateInitialState.h
+GenerateInitialState_Random.o : GenerateInitialState_Random.c GenerateInitialState.h Makefile
+GenerateInitialState_Preset.o : GenerateInitialState_Preset.c GenerateInitialState.h Makefile

@@ -5,4 +5,5 @@ struct lifegame_field
     int max_y;
     bool **cells;
     int step;
+    int max_step;
 };

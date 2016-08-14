@@ -18,6 +18,10 @@ int get_max_y(void)
 {
     return MAX_Y;
 }
+int get_max_step(void)
+{
+    return MAX_STEP;
+}
 bool get_init(const int i,const int j)
 {
     return (gsl_rng_uniform(r) < 0.5) ? false : true;

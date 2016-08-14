@@ -6,7 +6,7 @@
 void Run(struct lifegame_field *field)
 {
     Output(field);
-    while (field->step < STEP_MAX) {
+    while (field->step < field->max_step) {
         Step(field);
         Output(field);
     }

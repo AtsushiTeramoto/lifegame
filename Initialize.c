@@ -40,6 +40,7 @@ struct lifegame_field* Initialize(void)
     field = malloc_and_check(sizeof(struct lifegame_field));
     field->max_x = get_max_x();
     field->max_y = get_max_y();
+    field->max_step = get_max_step();
     field->cells = Alloc_Cells(field->max_x,field->max_y);
     Preset_Cells(field);
     field->step = 0;

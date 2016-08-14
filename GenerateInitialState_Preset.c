@@ -2,6 +2,7 @@
 #ifdef GLIDER
 #define INIT_X_SIZE 10
 #define INIT_Y_SIZE 10
+#define INIT_MAX_STEP 30
 static bool InitArray[INIT_X_SIZE][INIT_Y_SIZE] = 
 {
     {0,0,0,0,0,0,0,0,0,0},
@@ -19,6 +20,7 @@ static bool InitArray[INIT_X_SIZE][INIT_Y_SIZE] =
 #ifdef PULSAR
 #define INIT_X_SIZE 17
 #define INIT_Y_SIZE 17
+#define INIT_MAX_STEP 50
 static bool InitArray[INIT_X_SIZE][INIT_Y_SIZE] = 
 {
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -59,5 +61,9 @@ int get_max_x(void)
 int get_max_y(void)
 {
     return INIT_Y_SIZE;
+}
+int get_max_step(void)
+{
+    return INIT_MAX_STEP;
 }
     
