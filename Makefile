@@ -1,10 +1,16 @@
 OBJS = main.o Run.o Initialize.o Step.o Finalize.o Output.o
+ifeq ($(Initializer), Random)
+	OBJS += GenerateInitialState_Random.o
+	LDFLAGS += -L/usr/local/opt/gsl/lib -lgsl
+endif
+ifeq ($(Initializer), Preset)
+	OBJS += GenerateInitialState_Preset.o
+endif
 OPTIONS = -DMAX_X=5 -DMAX_Y=8 -DSTEP_MAX=30
-OPTIONS += -DUSE_INIT_ARRAY
 CFLAGS = ${OPTIONS} -W -Wall -g
 
 lifegame : ${OBJS} Makefile
-	cc -o lifegame ${OBJS}
+	cc -o lifegame ${OBJS} ${LDFLAGS}
 
 clean :
 	rm *.o
@@ -15,3 +21,5 @@ Initialize.o : Initialize.c Structures.h Initialize.h Makefile
 Finalize.o : Finalize.c Structures.h Finalize.h Makefile
 Step.o : Step.c Structures.h Step.h Finalize.h Initialize.h Makefile
 Output.o : Output.c Structures.h Makefile
+GenerateInitialState_Random.o : GenerateInitialState_Random.c GenerateInitialState.h 
+GenerateInitialState_Preset.c : GenerateInitialState_Preset.c GenerateInitialState.h

@@ -6,7 +6,7 @@
 int main(void)
 {
     struct lifegame_field *field;
-    field = Initialize(MAX_X,MAX_Y);
+    field = Initialize();
     Run(field);
     Finalize(field);
     return 0;
