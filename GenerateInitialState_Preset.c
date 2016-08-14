@@ -66,4 +66,7 @@ int get_max_step(void)
 {
     return INIT_MAX_STEP;
 }
-    
+int get_max_index_of_history(void)
+{
+    return MAX_HISTORY;
+}

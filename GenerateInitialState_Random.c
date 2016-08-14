@@ -22,6 +22,10 @@ int get_max_step(void)
 {
     return MAX_STEP;
 }
+int get_max_index_of_history(void)
+{
+    return MAX_HISTORY;
+}
 bool get_init(const int i,const int j)
 {
     return (gsl_rng_uniform(r) < 0.5) ? false : true;

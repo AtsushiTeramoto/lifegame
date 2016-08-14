@@ -56,15 +56,18 @@ static bool get_new_value(const struct lifegame_field *field, const int x, const
     const int count_neighbor = Count_Neighbor(field,x,y);    
     return get_Dead_or_Alive(count_neighbor,field->cells[x][y]);
 }
+static int get_next_index_of_history(const struct lifegame_field *field)
+{
+    return (field->index_of_history + 1 < field->max_index_of_history) ? field->index_of_history + 1 : 0;
+}
 void Step(struct lifegame_field *field)
 {
-    bool **new_cells = Alloc_Cells(field->max_x, field->max_y);
+    const int next_index_of_history = get_next_index_of_history(field);
     for (int i = 0; i < field->max_x; i++) {
         for (int j = 0; j < field->max_y; j++) {
-            new_cells[i][j] = get_new_value(field,i,j);
+            field->cells_history[next_index_of_history][i][j] = get_new_value(field,i,j);
         }
     }
-    Free_Cells(field);
-    Assign_Cells(field,new_cells);
+    set_pointers(field, next_index_of_history);
     field->step++;
 }

@@ -1,3 +1,2 @@
-bool **Alloc_Cells(const int max_x, const int max_y);
-void Assign_Cells(struct lifegame_field *field,bool **new_cells);
+void set_pointers(struct lifegame_field *field, const int new_index);
 struct lifegame_field *Initialize(void);
