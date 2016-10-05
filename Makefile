@@ -15,7 +15,7 @@ ifeq ($(Initializer), Preset)
 	#OPTIONS += -DGLIDER
 endif
 OPTIONS += -DMAX_HISTORY=4
-CFLAGS = ${OPTIONS} -W -Wall -g
+CFLAGS = ${OPTIONS} -W -Wall -g -std=c99
 
 lifegame : ${OBJS} Makefile
 	cc -o lifegame ${OBJS} ${LDFLAGS}
