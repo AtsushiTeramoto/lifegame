@@ -27,6 +27,7 @@ static bool get_Dead_or_Alive(const int count_neighbor,const bool dead_alive)
         case INVERSE:
             return !dead_alive;
     }
+    return false;
 }
 static int Periodic_Index(const int i,const int max_i)
 {
