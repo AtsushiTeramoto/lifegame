@@ -11,8 +11,8 @@ endif
 ifeq ($(Initializer), Preset)
 	OBJS += GenerateInitialState_Preset.o
 	SRCS += GenerateInitialState_Preset.c
-	#OPTIONS += -DPULSAR
-	OPTIONS += -DGLIDER
+	OPTIONS += -DPULSAR
+	#OPTIONS += -DGLIDER
 endif
 OPTIONS += -DMAX_HISTORY=4
 CFLAGS = ${OPTIONS} -W -Wall -g

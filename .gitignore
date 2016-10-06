@@ -2,3 +2,4 @@
 lifegame
 *.swp
 tags
+.DS_Store

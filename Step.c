@@ -12,6 +12,7 @@ static const enum State dead_alive_array[] = {
     DEATH,
     DEATH,
     DEATH,
+    DEATH,
     DEATH
 };
 static bool get_Dead_or_Alive(const int count_neighbor,const bool dead_alive)
